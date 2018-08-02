@@ -1,0 +1,110 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{top=17mm,}
+
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Juan Fernando González}
+\lhead{Algoritmia y Complijidad}
+
+\begin{document}
+
+\title{Lab1}
+\author{Fernando González}
+\maketitle
+
+\section*{Problema 1}
+
+\begin{algorithm}
+\caption{Busqueda Lineal}\label{euclid}
+\begin{algorithmic}[1]
+\Procedure{LSearch}{}
+\State Initialization:
+\State A=[$x_1$, $x_2$, $x_3$, $x_4$, $x_5$, $x_6$, $x_7$ ...]
+\State $\textit{v} = Input(num)$
+\For{\textit{i}=0; \textit{i}  in  range A; \textit{i}++}
+%\State \textbf{for}  \textit{i}=0; \textit{i}  in  range A; \textit{i}++\par
+\If {$x == A\textit{[i]}$}
+\State \textbf{Rerurn} A[i] 
+\State \textbf{Goto} \emph{Exit} 
+\ElsIf{$\textit{i} == len A and  A\textit{[i]} != \textit{x}\textit{[i]}$}
+\State \textbf{Rerurn} (The number is not part of the list.)
+\State \textbf{goto} \emph{top}.
+\EndIf
+\EndFor
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+\paragraph{
+Mi \textit{loop invariant} en mi algoritmo se mantiene, ya que al momento de hacer el \textit{for loop} que va recorriendo mi \textit{array}, me aseguro que cada vez que pasa por una posición revise si sea \textit{v}, y todos los numeros ya recorridos no son \textit{v}.
+}
+
+
+\section*{Problema 2}
+\begin{algorithm}
+\caption{Multiplicación de Matrices}\label{euclid}
+\begin{algorithmic}[1]
+\Procedure{xMatrix}{}
+\State Initialization:
+\State Input: Matriz A(n x m) and Matriz B(m x p)
+\State Output: Matriz C(n x p)\\
+\For {\textit{i} from 1 to n}
+\For{\textit{j} from 1 to p}
+\State Let sum = 0
+\For{\textit{k} from 1 to m}
+\State Set $sum \gets sum + A\textit{[j]}\textit{[h]} * B\textit{[k]}\textit{[j]}$
+\State Set C$\textit{[i]}\textit{[j]} \gets sum$\par \Return C
+\EndFor
+\EndFor
+\EndFor
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\paragraph{
+Ya que este algoritmo se basa en la multiplicación de matrices, es necesario analizar cada \textit{loop} que se encuentra en el código. En el primer \textit{loop}, este se tarda n veces la fila matriz A. El siguiente \textit{loop} se empieza a dar la intresección entre las matrices de A Y B, por siguiente, se inicializa la suma que se hara por cada vez que se multiplican las matrices. En la linea 10, se empiezan a multiplicar las matrices\textit{(Fila X Columa)}, se suma,  el resultado se establece en \textit{sum}.  Por ultimo, por cada vez que se multiplican las matrices \textit{(n*p*m)} se establecen en la nueva matriz C. Por lo tanto, este algoritmo tiene un running time de $O(n^3)$ dado la multiplicación de \textit{(n*p*m)}.\\ \~\ \\
+6: n\\
+7: n*p\\
+8: n*p\\
+9: n*p*m\\
+10: n*p*m\\
+11: n*p*m\\
+12: 1\\
+}
+\section*{Problema 3}
+\begin{figure}[h]
+\centering 
+\includegraphics[scale=0.7]{pic}
+
+Worst Time: $O(n^2)$\\
+Best Case: $O(n^2)$
+\end{figure}
+
+\paragraph{
+\textbf{Algorthm 2} \textit{Insertion Sort}\\ \~\ \\
+Worst Time: $O(n^2)$\\
+Best Case: $O(n)$\\ \~\ \\
+}
+
+
+Worst case: \textit{Bubble Sort} vs. \textit{Insertion Sort}\\
+\textbf{Comparación:}\\
+En este caso, ambos tienen el mismo worst case, es decir, que ambos tardan la misma cantidad de tiempo en el peor de los casos. Pero, una pequeña diferencia que tiene el \textit{Insertion Sort}, que lo hace un poco mas eficiente a nivel de comparaciónes, es que el \textit{Insertion Sort} verifica de dos en dos, y les hace \textit{switch}. Por otro lado el \textit{Bubble Sort} lo hace de uno en uno, lo cual a nivel de comparaciónes es un poco menos eficiente. 
+
+Best case: \textit{Bubble Sort} vs. \textit{Insertion Sort}\\
+\textbf{Comparación:}\\
+En el best case de estos dos algoritmos si hay diferencia, ya que el best case de el \textit{Insertion Sort} es $O(n)$ y el de \textit{Bubble Sort} es $O(n^2)$. Esto quiere decir que el \textit{Bubble Sort} es menos eficiente al momento de hacer el best case escenario, porque el \textit{Insertion Sort} solo requiere de recorrer la lista una vez, \textit{Bubble Sort} $n^2$.
+
+\end{document}
