@@ -30,8 +30,6 @@ def Merge(A,p,q,r):
    return A
 counter=0
 
-#print('Merge A:', Merge(Aa, 0, 3, 7))
-
 def MergeSort(A,p,r):
    global counter2
    counter2+=1
