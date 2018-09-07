@@ -1,0 +1,79 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{lipsum} %This package just generates Lorem Ipsum filler text. 
+\usepackage{fullpage} % changes the margin
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\usepackage[]{algorithm2e}
+\usepackage{placeins}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage{algorithmic}
+
+\begin{document}
+%Header-Make sure you update this information!!!!
+\noindent
+\large\textbf{Laboratorio \# 5} \hfill \textbf{Juan Diego Sique Martínez} \\
+\normalsize Algoritmia y Complejidad \hfill \textbf{Fernando González} \\
+Catedrático Ernesto Rodríguez \hfill \\
+Auxiliar Juan Roberto Alvarado \hfill 
+
+\section*{Problema}
+Realizar un algoritmo que determine el subconjunto de elementos que dentro de un arreglo, al ser sumados consecutivamente den como resultado 0.
+
+\section*{Algoritmo propuesto}
+\begin{algorithm}[H]
+ \KwData{Un arreglo {\bf A}}
+ \KwResult{Un subconjunto del arreglo original cuyos elementos sumados dan como resultado 0}
+ negativos = []\;
+ positivos = []\;
+ combinacionesPositivos = []\;
+ combinacionesNegativos = []\; 
+ respuesta = []\;
+ separarPositivosNegativos(A, positivos, negativos)\;
+ respuesta = compararIdenticos(positivos, negativos)\;
+ \If{ respuesta != []
+ }{return respuesta}
+ combinacionesPositivos = combinaciones(positivos)\;
+ combinacionesNegativos = combinaciones(Negativos)\;
+ respuesta = compararIdenticos(combinacionesPositivos, combinacionesNegativos)\;
+return respuesta
+ \caption{Laboratorio 5}
+\end{algorithm}
+
+\section*{¿Qué hace el método <<separarPositivosNegativos>>?}
+Esta función recibe como parámetro dos arreglos, uno donde colocará los números positivos, y otro donde pondrá los números negativos. De manera iterativa recorre el arreglo, destinando los elementos según si son mayores o menores que cero.
+
+\begin{algorithm}[H]
+ \KwData{Tres arreglos {\bf A B C}}
+ \KwResult{Los elementos de un conjunto clasificados según su procedencia o anterioridad al cero.}
+ \For{ i = 0 to A.lenght
+ }{
+ \eIf{A[i] $>$ 0}{
+ B.append(A[i])}{C.append(A[i])}
+ }
+ \caption{Laboratorio 5}
+\end{algorithm}
+
+
+\section*{¿Qué hace el método <<CompararIdenticos>>?}
+El método realiza una comparación entre elementos idénticos entre dos listas, si se cumple esta condición rompe el ciclo y retorna un subarreglo con los elementos reversos.
+
+\begin{algorithm}[H]
+ \KwData{Dos arreglos {\bf A B}}
+ \KwResult{Un arreglo con elementos reversos}
+ \For{ itemA in A
+ }{
+ \For{itemB in B}{
+ \If{itemA == -(itemB)}{ return [itemA, itemB]}
+}
+ }
+ \caption{Laboratorio 5}
+\end{algorithm}
+
+
+\section*{¿Qué hace el método <<Combinaciones>>?}
+El método de combinaciones obtiene todas las posibles combinaciones entre elementos de un conjunto.
+
+\end{document}
