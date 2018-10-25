@@ -9,7 +9,7 @@ abajo se encuentra la función que lo lee y guarda el archivo."""
 
 print('\n -------------------------- Empieza el programa -------------------------- \n')
 
-@TaskGenerator
+@TaskGenerator                              #Al ejecutarlo con Jug, da conflicto, al igual con la otra función de implemtación de Merge Sort.
 def Merge_AllSpark(lefthalf, righthalf):
 
     rh = 0
@@ -39,7 +39,7 @@ def Merge_Brain(matrix):
     right = Merge_Brain(matrix[half:])
     return Merge_AllSpark(left, right)
 
-@TaskGenerator
+@TaskGenerator                                          #Con este Task Generator si funciona.
 def File_Prime(file):
     file = open(file, "r")
     cont = file.readlines()
@@ -55,15 +55,3 @@ def File_Prime(file):
 #jug execute file.py (file siendo el nombre del archivo de python)"""
 
 #Es importante que tengan los archivos en la misma carpeta en donde se encuentra ej ejecutable del pro
-
-
-
-
-
-
-
-
-
-
-#print(merge_sort(cont))
-
